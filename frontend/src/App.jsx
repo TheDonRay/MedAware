@@ -1,8 +1,9 @@
 import './styles/App.css'; 
-
+import Homepage from "./components/Homepage.jsx"; 
 function App() {
   return (
-    <>
+    <> 
+    <Homepage/>
     </>
   )
 }
