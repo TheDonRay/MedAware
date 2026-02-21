@@ -110,8 +110,9 @@ export default function GetStartedPage() {
               onChange={inputHandler}
               placeholder="e.g. I have a headache and feel nauseous after taking my medication..."
             />
-          </div>
-          <button onClick={analyzebtn} className="gs-send-btn">
+          </div> 
+          {/*TODO: here add the loading state when user presses the Analyze symptoms. */}
+          <button onClick={analyzebtn} className="gs-send-btn" disabled={setLoading}>
             <span>Analyze Symptoms</span>
             <span className="gs-btn-arrow">&rarr;</span>
           </button>
