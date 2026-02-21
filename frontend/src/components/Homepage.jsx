@@ -12,16 +12,8 @@ export default function Homepage() {
 
   // define functions to the pages that it would redirect to here 
   function GetStartedNavigation() { 
-    navigate('/getstartedpage'); 
+    navigate('/getstarted'); 
   } 
-
-  function StartTracking() { 
-    navigate('/getstartedpage'); 
-  } 
-
-  function getStartedFree() { 
-    navigate('getstartedpage'); 
-  }
 
   return (
     <div className="homepage">
@@ -41,7 +33,7 @@ export default function Homepage() {
           <a href="#features">Features</a>
           <a href="#ai-insights">AI Insights</a>
           <a href="#tech">Tech Stack</a>
-          <button className="nav-cta">Get Started</button>
+          <button onClick={GetStartedNavigation}className="nav-cta">Get Started</button>
         </div>
       </nav>
 
@@ -56,7 +48,7 @@ export default function Homepage() {
           Track symptoms. Log medications. Understand your health.
         </p>
         <div className="hero-actions">
-          <button className="btn-primary">
+          <button onClick={GetStartedNavigation} className="btn-primary">
             <span>Start Tracking</span>
             <span className="btn-arrow">&rarr;</span>
           </button>
@@ -300,7 +292,7 @@ export default function Homepage() {
         <p className="cta-desc">
           Join MedSy and start understanding your medications like never before.
         </p>
-        <button className="btn-primary btn-lg">
+        <button onClick={GetStartedNavigation} className="btn-primary btn-lg">
           <span>Get Started Free</span>
           <span className="btn-arrow">&rarr;</span>
         </button>
@@ -312,7 +304,10 @@ export default function Homepage() {
           <div className="footer-brand">
             <span className="nav-icon">&#9883;</span>
             <span className="nav-title">MedSy</span>
-          </div>
+          </div> 
+
+          {/*Make sure to change this here and add the disclaimer here */}  
+          
           <p className="footer-text">
             Your intelligent health companion. Track, understand, and manage
             your medications with AI.
