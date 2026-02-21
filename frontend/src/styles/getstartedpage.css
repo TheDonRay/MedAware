@@ -1,0 +1,189 @@
+/* ===== GetStarted Page Wrapper ===== */
+.getstarted-page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* ===== Main Container ===== */
+.getstarted-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 73px);
+  padding: 60px 24px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.getstarted-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.gs-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  border-radius: 100px;
+  color: var(--accent-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+
+.gs-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.gs-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===== Symptom Input Card ===== */
+.symptom-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 20px;
+}
+
+.symptom-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.symptom-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.symptom-textarea {
+  width: 100%;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 130px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.symptom-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.symptom-textarea:focus {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+/* ===== Send Button ===== */
+.gs-send-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.gs-send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.42);
+}
+
+.gs-btn-arrow {
+  transition: transform 0.2s;
+}
+
+.gs-send-btn:hover .gs-btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ===== Feature Pills ===== */
+.gs-features {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gs-feature-pill {
+  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .getstarted-container {
+    padding: 40px 20px;
+    min-height: calc(100vh - 65px);
+  }
+
+  .gs-title {
+    font-size: 2.1rem;
+  }
+
+  .symptom-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gs-title {
+    font-size: 1.7rem;
+  }
+
+  .gs-subtitle {
+    font-size: 0.95rem;
+  }
+}

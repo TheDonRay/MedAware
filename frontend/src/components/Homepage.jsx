@@ -135,7 +135,7 @@ export default function Homepage() {
             </p>
             <span className="card-badge">Popular</span>
           </div>
-          <div className="feature-card">
+          {/* <div className="feature-card">
             <div className="feature-icon feature-icon-cyan">
               <svg
                 width="28"
@@ -155,8 +155,8 @@ export default function Homepage() {
               Log symptoms with severity ratings and notes. Track patterns over
               time to share with your doctor.
             </p>
-          </div>
-          <div className="feature-card">
+          </div> */}
+          {/* <div className="feature-card">
             <div className="feature-icon feature-icon-green">
               <svg
                 width="28"
@@ -178,7 +178,7 @@ export default function Homepage() {
               A clean overview of your medications, symptoms, and insights —
               everything at a glance.
             </p>
-          </div>
+          </div> */}
           {/* <div className="feature-card">
                         <div className="feature-icon feature-icon-orange">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -285,7 +285,6 @@ export default function Homepage() {
           <div className="tech-pill">Express</div>
           <div className="tech-pill">Claude API</div>
           <div className="tech-pill">OpenAI</div>
-          <div className="tech-pill">PostgreSQL</div>
         </div>
       </section>
 
