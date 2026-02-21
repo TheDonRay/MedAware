@@ -1,118 +1,137 @@
 import "../styles/getstartedpage.css";
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function GetStartedPage() {
-    const [InputText, SetInputText] = useState(''); 
-    const [setLoading, loading] = useState(false); 
-    const navigate = useNavigate();
+  const [InputText, SetInputText] = useState("");
+  const [setLoading, loading] = useState(false);
+  const navigate = useNavigate();
 
-    const inputHandler = (event) => {
-        SetInputText(event.target.value);
-    }; 
+  const inputHandler = (event) => {
+    SetInputText(event.target.value);
+  };
 
-    const analyzebtn = async () => {  
-        // start of with a base case here as such 
-        if (InputText === ""){ 
-            alert('Please enter how you feel'); 
-            return; 
-        }  
-        //button to take the input data and send the data to the backend here as such 
-        try { 
-            setLoading(true); 
-            // set up the response to actually send to the backend. 
-            const sendToBackend = await fetch(``, { 
-                method: 'POST', 
-                headers: { 
-                    "Content-Type" : "application/json"
-                }, 
-                body: JSON.stringify({ userDescription: InputText })
-            });  
-            // handle some validation if data was sent to the backend here as such  
-            if (!sendToBackend) { 
-                alert('Error Analzying'); 
-                console.log('Error sending data to the backend'); 
-                return; 
-            }   
-            //set up the wait time for the response 
-            const data = await sendToBackend.json(); 
-
-            if (!data) { 
-                throw new Error('Error getting data from the backend'); 
-            } 
-            console.log('Successful, data recieved:', data); 
-            
-        } catch (error) { 
-
-        }
+  const analyzebtn = async () => {
+    // start of with a base case here as such
+    if (InputText === "") {
+      alert("Please enter how you feel");
+      return;
     }
+    //button to take the input data and send the data to the backend here as such
+    try {
+      setLoading(true);
+      // set up the response to actually send to the backend.
+      const sendToBackend = await fetch(``, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userDescription: InputText }),
+      });
+      // handle some validation if data was sent to the backend here as such
+      if (!sendToBackend) {
+        alert("Error Analzying");
+        console.log("Error sending data to the backend");
+        return;
+      }
+      //set up the wait time for the response
+      const data = await sendToBackend.json();
 
-    return (
-        <div className="getstarted-page">
-            <div className="bg-grid" />
-            <div className="glow-orb glow-orb-1" />
-            <div className="glow-orb glow-orb-2" />
+      if (!data) {
+        throw new Error("Error getting data from the backend");
+      }
+      console.log("Successful, data recieved:", data);
+      
+    } catch (error) {}
+  };
 
-            <nav className="navbar">
-                <div className="nav-brand">
-                    <span className="nav-icon">&#9883;</span>
-                    <span className="nav-title">MedSy</span>
-                </div>
-                <div className="nav-links">
-                    <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
-                    <a href="/learnmore" onClick={(e) => { e.preventDefault(); navigate('/learnmore'); }}>Learn More</a>
-                    <button className="nav-cta" onClick={() => navigate('/getstarted')}>Get Started</button>
-                </div>
-            </nav>
+  return (
+    <div className="getstarted-page">
+      <div className="bg-grid" />
+      <div className="glow-orb glow-orb-1" />
+      <div className="glow-orb glow-orb-2" />
 
-            <div className="getstarted-container">
-                <div className="getstarted-header">
-                    <span className="gs-badge">AI Health Analysis</span>
-                    <h1 className="gs-title">
-                        How are you <span className="gradient-text">feeling today?</span>
-                    </h1>
-                    <p className="gs-subtitle">
-                        Describe your symptoms and our AI will help you understand what you might be experiencing and give back a possible medicine to counter those symptoms.
-                    </p>
-                </div>
-
-                <div className="symptom-card">
-                    <div className="symptom-input-wrapper">
-                        <label className="symptom-label">Describe your symptoms</label>
-                        <textarea
-                            className="symptom-textarea"
-                            value={InputText}
-                            onChange={inputHandler}
-                            placeholder="e.g. I have a headache and feel nauseous after taking my medication..."
-                        />
-                    </div>
-                    <button onClick={analyzebtn}className="gs-send-btn">
-                        <span>Analyze Symptoms</span>
-                        <span className="gs-btn-arrow">&rarr;</span>
-                    </button>
-                </div>
-
-                <div className="gs-features">
-                    <div className="gs-feature-pill">AI-Powered</div>
-                    <div className="gs-feature-pill">Instant Analysis</div>
-                    <div className="gs-feature-pill">100% Free</div>
-                </div>
-            </div>
-
-            <footer className="footer">
-                <div className="footer-content">
-                    <div className="footer-brand">
-                        <span className="nav-icon">&#9883;</span>
-                        <span className="nav-title">MedSy</span>
-                    </div>
-                    <p className="footer-text">
-                        Your intelligent health companion. Track, understand, and manage your medications with AI.
-                    </p>
-                </div>
-                <div className="footer-bottom">
-                    <span>&copy; 2026 MedSy. All rights reserved.</span>
-                </div>
-            </footer>
+      <nav className="navbar">
+        <div className="nav-brand">
+          <span className="nav-icon">&#9883;</span>
+          <span className="nav-title">MedSy</span>
         </div>
-    );
+        <div className="nav-links">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/");
+            }}
+          >
+            Home
+          </a>
+          <a
+            href="/learnmore"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/learnmore");
+            }}
+          >
+            Learn More
+          </a>
+          <button className="nav-cta" onClick={() => navigate("/getstarted")}>
+            Get Started
+          </button>
+        </div>
+      </nav>
+
+      <div className="getstarted-container">
+        <div className="getstarted-header">
+          <span className="gs-badge">AI Health Analysis</span>
+          <h1 className="gs-title">
+            How are you <span className="gradient-text">feeling today?</span>
+          </h1>
+          <p className="gs-subtitle">
+            Describe your symptoms and our AI will help you understand what you
+            might be experiencing and give back a possible medicine to counter
+            those symptoms.
+          </p>
+        </div>
+
+        <div className="symptom-card">
+          <div className="symptom-input-wrapper">
+            <label className="symptom-label">Describe your symptoms</label>
+            <textarea
+              className="symptom-textarea"
+              value={InputText}
+              onChange={inputHandler}
+              placeholder="e.g. I have a headache and feel nauseous after taking my medication..."
+            />
+          </div>
+          <button onClick={analyzebtn} className="gs-send-btn">
+            <span>Analyze Symptoms</span>
+            <span className="gs-btn-arrow">&rarr;</span>
+          </button>
+        </div>
+
+        <div className="gs-features">
+          <div className="gs-feature-pill">AI-Powered</div>
+          <div className="gs-feature-pill">Instant Analysis</div>
+          <div className="gs-feature-pill">100% Free</div>
+        </div>
+      </div>
+
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <span className="nav-icon">&#9883;</span>
+            <span className="nav-title">MedSy</span>
+          </div>
+          <p className="footer-text">
+            Your intelligent health companion. Track, understand, and manage
+            your medications with AI.
+          </p>
+        </div>
+        <div className="footer-bottom">
+          <span>&copy; 2026 MedSy. All rights reserved.</span>
+        </div>
+      </footer>
+    </div>
+  );
 }

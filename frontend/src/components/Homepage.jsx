@@ -10,13 +10,13 @@ export default function Homepage() {
     setIsVisible(true);
   }, []);
 
-  // define functions to the pages that it would redirect to here 
-  function GetStartedNavigation() { 
-    navigate('/getstarted'); 
-  }  
+  // define functions to the pages that it would redirect to here
+  function GetStartedNavigation() {
+    navigate("/getstarted");
+  }
 
-  function LearnMorePage() { 
-    navigate('/learnmore');
+  function LearnMorePage() {
+    navigate("/learnmore");
   }
 
   return (
@@ -37,7 +37,9 @@ export default function Homepage() {
           <a href="#features">Features</a>
           <a href="#ai-insights">AI Insights</a>
           <a href="#tech">Tech Stack</a>
-          <button onClick={GetStartedNavigation}className="nav-cta">Get Started</button>
+          <button onClick={GetStartedNavigation} className="nav-cta">
+            Get Started
+          </button>
         </div>
       </nav>
 
@@ -56,7 +58,9 @@ export default function Homepage() {
             <span>Start Tracking</span>
             <span className="btn-arrow">&rarr;</span>
           </button>
-          <button onClick={LearnMorePage}className="btn-secondary">Learn More</button>
+          <button onClick={LearnMorePage} className="btn-secondary">
+            Learn More
+          </button>
         </div>
         <div className="hero-stats">
           <div className="stat">
@@ -307,10 +311,10 @@ export default function Homepage() {
           <div className="footer-brand">
             <span className="nav-icon">&#9883;</span>
             <span className="nav-title">MedSy</span>
-          </div> 
+          </div>
 
-          {/*Make sure to change this here and add the disclaimer here */}  
-          
+          {/*Make sure to change this here and add the disclaimer here */}
+
           <p className="footer-text">
             Your intelligent health companion. Track, understand, and manage
             your medications with AI.
