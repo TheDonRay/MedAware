@@ -1,10 +1,10 @@
-# MedAware
+# MedSy
 
 **Track medications, log symptoms, and understand drug information with AI-assisted insights.**
 
 ## Overview
 
-MedAware is an intelligent health companion application that helps users manage their medications, monitor symptoms, and gain deeper understanding of their treatments through AI-powered insights. Whether you're managing chronic conditions, tracking multiple prescriptions, or simply want to stay informed about your medications, MedAware provides the tools you need.
+MedSy is an intelligent health companion application that helps users manage their medications, monitor symptoms, and gain deeper understanding of their treatments through AI-powered insights. Whether you're managing chronic conditions, tracking multiple prescriptions, or simply want to stay informed about your medications, MedSy provides the tools you need.
 
 ## Features
 
@@ -37,8 +37,8 @@ MedAware is an intelligent health companion application that helps users manage 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/medaware.git
-cd medaware
+git clone https://github.com/yourusername/MedSy.git
+cd MedSy
 ```
 
 2. Install dependencies:
