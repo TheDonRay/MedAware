@@ -21,13 +21,12 @@ export default function GetStartedPage() {
     try {
       setLoading(true);
       // set up the response to actually send to the backend. 
-      //TODO: set up the endpoint for the backend here to recieve the data. 
       const sendToBackend = await fetch(``, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userDescription: InputText }),
+        body: JSON.stringify({ userSymptoms: InputText }),
       });
       // handle some validation if data was sent to the backend here as such
       if (!sendToBackend.ok) {
@@ -112,7 +111,7 @@ export default function GetStartedPage() {
             />
           </div> 
           {/*TODO: here add the loading state when user presses the Analyze symptoms. */}
-          <button onClick={analyzebtn} className="gs-send-btn" disabled={setLoading}>
+          <button onClick={analyzebtn} className="gs-send-btn" disabled={loading}>
             <span>Analyze Symptoms</span>
             <span className="gs-btn-arrow">&rarr;</span>
           </button>

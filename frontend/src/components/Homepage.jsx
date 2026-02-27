@@ -51,7 +51,7 @@ export default function Homepage() {
           <span className="gradient-text">Understand What You Take.</span>
         </h1>
         <p className="hero-subtitle">
-          Track symptoms. Log medications. Understand your health.
+          Track symptoms. Understand medications. Understand your health.
         </p>
         <div className="hero-actions">
           <button onClick={GetStartedNavigation} className="btn-primary">
@@ -70,7 +70,7 @@ export default function Homepage() {
           <div className="stat-divider" />
           <div className="stat">
             <span className="stat-number">24/7</span>
-            <span className="stat-label">Medication Tracking</span>
+            <span className="stat-label">Medication Information</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
@@ -111,10 +111,9 @@ export default function Homepage() {
                 <polyline points="7 3 7 8 15 8" />
               </svg>
             </div>
-            <h3>Medication Search</h3>
+            <h3>Symptom Analysis</h3>
             <p>
-              Search any medicine and instantly view its side effects, usage
-              details, and important safety information.
+              Describe your symptoms and let AI recommend the most appropriate medications to support your relief.
             </p>
           </div>
           <div className="feature-card feature-card-highlight">
@@ -134,8 +133,7 @@ export default function Homepage() {
             </div>
             <h3>AI Insights</h3>
             <p>
-              Get intelligent, personalized explanations about your medications
-              and potential drug interactions.
+              Receive symptom-based medication recommendations along with smart, personalized explanations about your prescriptions and possible drug interactions.
             </p>
             <span className="card-badge">Popular</span>
           </div>
@@ -275,23 +273,6 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Tech Stack Section */}
-      <section className="tech-section" id="tech">
-        <div className="section-header">
-          <span className="section-tag">Technology</span>
-          <h2 className="section-title">
-            Built with <span className="gradient-text">modern tech</span>
-          </h2>
-        </div>
-        <div className="tech-grid">
-          <div className="tech-pill">React.js</div>
-          <div className="tech-pill">Node.js</div>
-          <div className="tech-pill">Express</div>
-          <div className="tech-pill">Claude API</div>
-          <div className="tech-pill">OpenAI</div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-glow" />
@@ -316,8 +297,7 @@ export default function Homepage() {
           {/*Make sure to change this here and add the disclaimer here */}
 
           <p className="footer-text">
-            Your intelligent health companion. Track, understand, and manage
-            your medications with AI.
+            Always consult a qualified healthcare professional for medical advice, diagnosis, or treatment. If you experience any adverse health effects or medical concerns, seek professional medical attention immediately
           </p>
         </div>
         <div className="footer-bottom">
