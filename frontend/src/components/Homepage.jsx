@@ -294,14 +294,19 @@ export default function Homepage() {
             <span className="nav-title">MedSy</span>
           </div>
 
-          {/*Make sure to change this here and add the disclaimer here */}
-
-          <p className="footer-text">
-            Always consult a qualified healthcare professional for medical advice, diagnosis, or treatment. If you experience any adverse health effects or medical concerns, seek professional medical attention immediately
-          </p>
+          <div className="footer-disclaimer">
+            <div className="disclaimer-header">
+              <span className="disclaimer-icon">&#9888;</span>
+              <span className="disclaimer-label">Medical Disclaimer</span>
+            </div>
+            <p className="footer-text">
+              MedSy is intended for informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before making any health-related decisions. Never disregard professional medical advice or delay seeking it based on information from this platform. In the event of a medical emergency, contact your local emergency services immediately.
+            </p>
+          </div>
         </div>
         <div className="footer-bottom">
           <span>&copy; 2026 MedSy. All rights reserved.</span>
+          <span className="footer-bottom-note">For informational purposes only &mdash; not a substitute for professional medical advice.</span>
         </div>
       </footer>
     </div>
