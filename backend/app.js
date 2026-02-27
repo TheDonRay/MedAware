@@ -1,5 +1,6 @@
 const express = require('express'); 
-const app = express(); 
+const app = express();  
+const cors = require('cors'); 
 
 //call routes here 
 const symptomAnalyze = require('./routes/analyzesymptoms.route.js'); 
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
 });  
 
 //mount the routes here as such 
+app.use('/api/v1/', symptomAnalyze); 
 
 module.exports = app; 
 
