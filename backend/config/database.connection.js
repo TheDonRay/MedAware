@@ -3,5 +3,11 @@ const URI = process.env.mongoURI;
 
 const databaseConnection = async () => {
   try {
-  } catch (error) {}
+    await mongoose.connect(URI);
+    console.log("Database successfully connected");
+  } catch (error) {
+    console.error("Error connection to the database", error);
+  }
 };
+
+module.exports = databaseConnection;
