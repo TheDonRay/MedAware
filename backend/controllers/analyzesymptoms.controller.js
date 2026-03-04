@@ -17,8 +17,13 @@ const analyzeSymptoms = async (req, res) => {
     } 
 
     // this is going to hold the mongodb as well for stored symptoms as well. 
-    try {   
-        console.log(`User entered the following symptoms: ${userSymptoms}`)
+    try {    
+        const newSymptoms = new database({ 
+            symptoms: userSymptoms
+        }); 
+        // finally save that here as such 
+        newSymptoms.save(); 
+        console.log('User Symptoms have been Successfully saved to mongodb')
         // recieved input and insert into mongoDB database then send to the AI afterwards. 
         return res.status(200).json({ 
             Symptoms: "logged successfully, and kept track of"
