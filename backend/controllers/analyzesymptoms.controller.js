@@ -5,6 +5,24 @@ const client = new OpenAi({
   apiKey: process.env.openaiKEY,
 });
 
+const HelperMedicineRecommendation = async (userSymptoms) => {
+  const AIsymptomAnalysis = await client.chat.completions.create({
+    model: "gpt-4o",
+    messages: [
+      {
+        role: "system",
+        content:
+          "you are a medical advisor given the symptoms a user describes prescribe just one medicine for it no explanation needed. Response should be one word",
+      },
+      {
+        role: "user",
+        content: `Here is the users symptoms: ${userSymptoms}`,
+      },
+    ],
+  });
+  return AIsymptomAnalysis.choices[0].message.content;
+}; 
+
 const analyzeSymptoms = async (req, res) => {
   const { userSymptoms } = req.body;
   // some error handling
@@ -23,30 +41,13 @@ const analyzeSymptoms = async (req, res) => {
     // finally save that here as such
     await newSymptoms.save();
     console.log("User Symptoms have been Successfully saved to mongodb");
-    // recieved input and insert into mongoDB database then send to the AI afterwards.
-    const AIsymptomAnalysis = await client.chat.completions.create({
-      model: "gpt-4o",
-      messages: [
-        {
-          role: "system",
-          content:
-            "you are a medical advisor given the symptoms a user describes prescribe one potential medicine to help the symptoms go away",
-        },
-        {
-          role: "user",
-          content: `Here is the users symptoms: ${userSymptoms}`,
-        },
-      ],
-    });
 
-    // some validation to check now as such:
-    if (!AIsymptomAnalysis) {
-      throw new Error("Error analyzing users symptoms");
-    }
-
+    // call the function here after saving
+    const MedicineRecommendation = await HelperMedicineRecommendation(userSymptoms); 
+    // return data back to the frontend here as such
     return res.status(200).json({
       Symptoms: "logged successfully, and kept track of",
-      SymptomAnalysis: AIsymptomAnalysis.choices[0].message.content,
+      MedicineAdvised: MedicineRecommendation,
     });
   } catch (error) {
     console.error("There was an error retrieving the user symptoms", error);
@@ -57,4 +58,4 @@ const analyzeSymptoms = async (req, res) => {
   }
 };
 
-module.exports = analyzeSymptoms;
+module.exports = { analyzeSymptoms, HelperMedicineRecommendation };
