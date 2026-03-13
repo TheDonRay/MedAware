@@ -1,5 +1,7 @@
-// external service here which sends data to rxNorm API.  Remember that we are calling this external function from another controller.
-// medicine Advised is the parameter that is from the users symptom.
+
+// add mongodb schema here below 
+
+
 const externalAPI = async (medicineAdvised) => {
   const endpoints = new URLSearchParams({
     name: medicineAdvised,
@@ -10,22 +12,31 @@ const externalAPI = async (medicineAdvised) => {
   // implement try and catch case here as such
   try {
     // set up the fetch request here such that it gets sent to the frontend UI and manipulating that data
-    const getMedicalData = await fetch(URL); 
+    const getMedicalData = await fetch(URL);
 
-    if (!getMedicalData) { 
-        throw new Error('Error not a valid medicine details found from Library');
+    if (!getMedicalData) {
+      throw new Error("Error not a valid medicine details found from Library");
+    }
+
+    const resFromExternalAPI = await getMedicalData.json();
+
+    if (!resFromExternalAPI) {
+      throw new Error("No data recieved from the external API");
     } 
 
-    const resFromExternalAPI = await getMedicalData.json(); 
+    // TODO: going to map this data to like object then export that. 
+    const rxcuiData = resFromExternalAPI.map((fields) => ({ 
+        rxcui:fields.drugGroup.conceptGroup.contentProperties, 
+        name: fields.drugGroup.conceptGroup.name,  
+        synonym: fields.drugGroup.conceptGroup.synonym, 
+    })); 
 
-    if (!resFromExternalAPI) { 
-        throw new Error('No data recieved from the external API'); 
-    } 
+    console.log('Medical Information recieved:', rxcuiData); 
 
-    return resFromExternalAPI; 
+    return rxcuiData; 
   } catch (error) {
-    console.log('Error recieving data from the backend', error); 
-    return false; 
+    console.log("Error recieving data from the backend", error);
+    return false;
   }
 };
 

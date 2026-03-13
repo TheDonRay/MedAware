@@ -1,3 +1,5 @@
+//TODO: Update this mongoDB schema model here 
+
 const mongoose = require("mongoose");
 
 const storedSymptoms = new mongoose.Schema({
