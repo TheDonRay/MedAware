@@ -1,7 +1,9 @@
-// add mongodb schema here below 
+// add mongodb schema here below
 
-//extenal medicine function here as such 
-const { MedicineProperties } = require('../services/MedicineProperties.services.js'); 
+//extenal medicine function here as such
+const {
+  MedicineProperties,
+} = require("../services/MedicineProperties.services.js");
 
 const externalAPI = async (medicineAdvised) => {
   const endpoints = new URLSearchParams({
@@ -42,9 +44,9 @@ const externalAPI = async (medicineAdvised) => {
       throw new Error("No data received from the external API");
     }
     console.log("Medical Information recieved:", rxcuiData);
-    // call the function here to export it with the data  
-    const structuredData = await MedicineProperties(rxcuiData); 
-    return structuredData;  
+    // call the function here to export it with the data
+    const structuredData = await MedicineProperties(rxcuiData);
+    return structuredData;
   } catch (error) {
     console.log("Error recieving data from the backend", error);
     return false;
